@@ -20,6 +20,8 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
    ```bash
    ros2 run nav2_map_server map_saver_cli -f ~/map
    ```
+![20260127_161222](https://github.com/user-attachments/assets/fb248c2e-39dd-4e39-8e4c-d6e148dc254d)
+![20260127_161527](https://github.com/user-attachments/assets/1e947a81-6762-4b5d-b06a-b536140a9c1d)
 
 ## 메인 프로젝트
 1. **리모 가동**
