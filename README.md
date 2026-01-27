@@ -2,7 +2,27 @@
 
 https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패키지 다운 참고
 
-1. 리모 가동
+## 맵 만들기
+1. **리모 가동**
+
+    ```bash
+    ros2 launch limo_bringup limo_start.launch.py
+    ```
+
+2. **맵 작성**
+
+   ```bash
+   ros2 launch limo_bringup cartographer.launch.py
+   ```
+
+3. **맵 저장**
+
+   ```bash
+   ros2 run nav2_map_server map_saver_cli -f ~/map
+   ```
+
+## 메인 프로젝트
+1. **리모 가동**
     
     ```bash
     ros2 launch limo_bringup limo_start.launch.py
