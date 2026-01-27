@@ -1,5 +1,7 @@
 # LIMO_ROS2_PROJECT
 
+https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패키지 다운 참고
+
 1. 리모 가동
     
     ```bash
