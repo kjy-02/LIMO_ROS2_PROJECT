@@ -34,13 +34,13 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
 2. **지도 불러오기**
     
     ```bash
-    ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=/home/agilex/map01.yaml
+    ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=/home/agilex/map.yaml
     ```
     
 3. **Localization 실행 (AMCL).**
     
     ```bash
-    ros2 launch limo_bringup limo_nav2_ackerman.launch.py map:=/home/agilex/map01.yaml use_sim_time:=true
+    ros2 launch limo_bringup limo_nav2_ackmann.launch.py map:=/home/agilex/map.yaml use_sim_time:=true
     ```
     
 4. **Realsense 카메라 실행**
