@@ -20,8 +20,11 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
    ```bash
    ros2 run nav2_map_server map_saver_cli -f ~/map
    ```
-![20260127_161222](https://github.com/user-attachments/assets/fb248c2e-39dd-4e39-8e4c-d6e148dc254d) , ![20260127_161527](https://github.com/user-attachments/assets/1e947a81-6762-4b5d-b06a-b536140a9c1d)
-![map (1)](https://github.com/user-attachments/assets/e85ca8e8-477e-4621-ba45-f6489d82d50d)
+
+<img width="400" height="400" alt="2" src="https://github.com/user-attachments/assets/0d149542-7da0-4602-ac31-a485a3dda75b" />
+<img width="400" height="400" alt="1" src="https://github.com/user-attachments/assets/e0e25ca5-a246-4563-90c3-fabff38e21cc" />
+
+![map (1)](https://github.com/user-attachments/assets/b6880b29-fdf0-42c7-bd79-04c3387e89f7)
 
 
 ## 메인 프로젝트
@@ -133,5 +136,14 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
     
     ### 로그
     📦 YOLO detected 1 objects
+    
     🌐 Map coords: [0.29899437 0.67378386 0.30389404]
+    
     📍 Marker published at map=[0.29899437 0.67378386 0.30389404]
+
+    
+![1000031519](https://github.com/user-attachments/assets/edeef7d7-1086-413c-8314-af90c7ee190b)
+<img width="400" height="300" alt="1000031513" src="https://github.com/user-attachments/assets/55dd5e25-dcf3-42b3-99ab-5d48c2759246" />
+
+
+    
