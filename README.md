@@ -1,21 +1,36 @@
-# LIMO_ROS2_PROJECT
+# LIMO ROS2 Object Mapping Project
 
+이 프로젝트는 LIMO 로봇을 활용하여 실내 환경의 지도를 작성(SLAM)하고, YOLO v3 객체 인식을 통해 탐지된 사물의 위치를 좌표 변환하여 맵 상에 마커(Marker)로 시각화하는 자율주행/로봇 비전 프로젝트입니다.
 https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패키지 다운 참고
 
-## 맵 만들기
-1. **리모 가동**
+## 프로젝트 개요 (Project Overview)
+자율주행 로봇이 주행 중 마주치는 장애물이나 특정 객체를 인식하고, 그 객체가 지도상 어디에 위치하는지 파악하는 것은 매우 중요합니다. 이 프로젝트는 다음과 같은 주요 기능을 수행합니다.
+
+1. SLAM (Simultaneous Localization and Mapping): Lidar 센서를 이용하여 주변 환경의 2D 지도를 작성합니다.
+2. Object Detection (YOLO v3): 카메라를 통해 들어오는 영상에서 실시간으로 객체(사람, 사물 등)를 인식합니다.
+3. Coordinate Transformation: 카메라 좌표계(2D 이미지)에서 인식된 객체의 위치를 로봇 좌표계를 거쳐 지도 좌표계(Map Frame)로 변환합니다.
+4. Visualization: 변환된 좌표를 바탕으로 RViz 상의 지도 위에 해당 객체의 위치를 마커로 표시합니다.
+## 주요 기능 및 기술
+Platform: AgileX LIMO (NVIDIA Jetson Nano 기반)
+OS / Middleware: Ubuntu 20.04 / ROS2 Foxy
+SLAM: Cartographer / Gmapping
+Object Detection: YOLO v3
+Navigation: Nav2 (Navigation 2 Stack)
+Sensors: 2D Lidar, RGB-D Camera (RealSense D435i)
+## 맵 만들기 (SLAM Mapping)
+1. **리모 구동 (Bringup)**
 
     ```bash
     ros2 launch limo_bringup limo_start.launch.py
     ```
 
-2. **맵 작성**
+2. **SLAM 실행 (Catographer)**
 
    ```bash
    ros2 launch limo_bringup cartographer.launch.py
    ```
 
-3. **맵 저장**
+3. **맵 저장 (Map Saver)**
 
    ```bash
    ros2 run nav2_map_server map_saver_cli -f ~/map
@@ -27,8 +42,8 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
 ![map (1)](https://github.com/user-attachments/assets/b6880b29-fdf0-42c7-bd79-04c3387e89f7)
 
 
-## 메인 프로젝트
-1. **리모 가동**
+## 객체 인신 및 마커 생성 (Object Detection & Marker)
+1. **리모 구동**
     
     ```bash
     ros2 launch limo_bringup limo_start.launch.py
@@ -46,7 +61,7 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
     ros2 launch limo_bringup limo_nav2_ackmann.launch.py map:=/home/agilex/map.yaml use_sim_time:=true
     ```
     
-4. **Realsense 카메라 실행**
+4. **Realsense 카메라 구동**
     
     ```bash
     ros2 launch realsense2_camera rs_launch.py
@@ -55,10 +70,10 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
 5. **YOLO+Depth→Map 마커 코드 실행**
     
     ```bash
-    /bin/python /home/agilex/limo21/src/code.py
+    ros2 run limo_ros2_project code.py
     ```
     
-6. **RViz 실행**
+6. **RViz 설정**
     - Fixed Frame: `map`
     - Display → `Map`, `TF`, `Marker`
 
