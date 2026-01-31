@@ -1,6 +1,7 @@
 # LIMO ROS2 Object Mapping Project
 
 이 프로젝트는 LIMO 로봇을 활용하여 실내 환경의 지도를 작성(SLAM)하고, YOLO v3 객체 인식을 통해 탐지된 사물의 위치를 좌표 변환하여 맵 상에 마커(Marker)로 시각화하는 자율주행/로봇 비전 프로젝트입니다.
+
 https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패키지 다운 참고
 
 ## 프로젝트 개요 (Project Overview)
@@ -12,10 +13,15 @@ https://github.com/realsenseai/realsense-ros/tree/ros2-development 카메라 패
 4. Visualization: 변환된 좌표를 바탕으로 RViz 상의 지도 위에 해당 객체의 위치를 마커로 표시합니다.
 ## 주요 기능 및 기술
 Platform: AgileX LIMO (NVIDIA Jetson Nano 기반)
+
 OS / Middleware: Ubuntu 20.04 / ROS2 Foxy
+
 SLAM: Cartographer / Gmapping
+
 Object Detection: YOLO v3
+
 Navigation: Nav2 (Navigation 2 Stack)
+
 Sensors: 2D Lidar, RGB-D Camera (RealSense D435i)
 ## 맵 만들기 (SLAM Mapping)
 1. **리모 구동 (Bringup)**
@@ -52,13 +58,13 @@ Sensors: 2D Lidar, RGB-D Camera (RealSense D435i)
 2. **지도 불러오기**
     
     ```bash
-    ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=/home/agilex/map.yaml
+    ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=/home/limo_ws/map.yaml
     ```
     
 3. **Localization 실행 (AMCL).**
     
     ```bash
-    ros2 launch limo_bringup limo_nav2_ackmann.launch.py map:=/home/agilex/map.yaml use_sim_time:=true
+    ros2 launch limo_bringup limo_nav2_ackmann.launch.py map:=/home/limo_ws/map.yaml use_sim_time:=true
     ```
     
 4. **Realsense 카메라 구동**
