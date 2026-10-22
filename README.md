@@ -151,11 +151,11 @@ RViz에서 **Fixed Frame = map**, **Map**, **TF**, **Marker**를 추가하고 Ma
 
 검출 박스 중심 픽셀 $(u,v)$ 주변의 최대 $5 \times 5$ 깊이 영역에서 중앙값 $Z$를 구합니다. 카메라 내부 파라미터 $f_x,f_y,c_x,c_y$는 CameraInfo에서 읽습니다.
 
-$$
+```math
 X = \frac{(u-c_x)Z}{f_x}, \qquad
 Y = \frac{(v-c_y)Z}{f_y}, \qquad
 P_{\mathrm{cam}} = \begin{bmatrix}X\\Y\\Z\end{bmatrix}
-$$
+```
 
 코드: `compute_depth_point()`
 
@@ -166,11 +166,11 @@ $$
 
 카메라의 오른쪽·아래·전방 축을 로봇의 전방·왼쪽·위쪽 축으로 바꾸고 장착 오프셋을 더합니다.
 
-$$
+```math
 P_{\mathrm{base}} = R_{\mathrm{cam\to base}} P_{\mathrm{cam}} + t_{\mathrm{cam}}
-$$
+```
 
-$$
+```math
 R_{\mathrm{cam\to base}} =
 \begin{bmatrix}
 0&0&1\\
@@ -180,7 +180,7 @@ R_{\mathrm{cam\to base}} =
 \qquad
 t_{\mathrm{cam}} =
 \begin{bmatrix}0.1\\0\\0.1\end{bmatrix}\ \mathrm{m}
-$$
+```
 
 위 값은 코드에 고정된 가정입니다. 실제 장착 위치·자세가 달라지면 수정해야 합니다.
 
@@ -193,20 +193,20 @@ $$
 
 AMCL에서 받은 로봇 자세 $q=(x,y,z,w)$를 정규화한 뒤 회전행렬로 바꿉니다. 이 변환을 라이브러리 호출 대신 직접 구현했습니다.
 
-$$
+```math
 R(q)=
 \begin{bmatrix}
 1-2(y^2+z^2)&2(xy-wz)&2(xz+wy)\\
 2(xy+wz)&1-2(x^2+z^2)&2(yz-wx)\\
 2(xz-wy)&2(yz+wx)&1-2(x^2+y^2)
 \end{bmatrix}
-$$
+```
 
 AMCL의 지도 기준 위치 $t_{\mathrm{robot}}$를 더해 객체의 지도 좌표를 구합니다.
 
-$$
+```math
 P_{\mathrm{map}}=R(q)P_{\mathrm{base}}+t_{\mathrm{robot}}
-$$
+```
 
 코드: `quat_to_rot_matrix()`, `transform_to_map()`
 
