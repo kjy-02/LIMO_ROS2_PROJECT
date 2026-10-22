@@ -257,6 +257,8 @@ AMCL은 평면 위치 추정에 쓰이므로 이 예시의 높이는 깊이와 �
 <details>
 <summary><strong>추가 결과 화면과 출력 로그 보기</strong></summary>
 
+![실험 현장과 결과 확인](https://github.com/user-attachments/assets/edeef7d7-1086-413c-8314-af90c7ee190b)
+
 <img src="https://github.com/user-attachments/assets/55dd5e25-dcf3-42b3-99ab-5d48c2759246" alt="추가 실험 결과 화면" width="600">
 
 ```text
