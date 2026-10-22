@@ -146,8 +146,7 @@ RViz에서 **Fixed Frame = map**, **Map**, **TF**, **Marker**를 추가하고 Ma
 
 ## 좌표 변환 상세
 
-<details>
-<summary><strong>1. 픽셀과 깊이 → 카메라 좌표</strong></summary>
+### 1. 픽셀과 깊이 → 카메라 좌표
 
 검출 박스 중심 픽셀 $(u,v)$ 주변의 최대 $5 \times 5$ 깊이 영역에서 중앙값 $Z$를 구합니다. 카메라 내부 파라미터 $f_x,f_y,c_x,c_y$는 CameraInfo에서 읽습니다.
 
@@ -159,10 +158,7 @@ P_{\mathrm{cam}} = \begin{bmatrix}X\\Y\\Z\end{bmatrix}
 
 코드: `compute_depth_point()`
 
-</details>
-
-<details>
-<summary><strong>2. 카메라 좌표 → 로봇 좌표</strong></summary>
+### 2. 카메라 좌표 → 로봇 좌표
 
 카메라의 오른쪽·아래·전방 축을 로봇의 전방·왼쪽·위쪽 축으로 바꾸고 장착 오프셋을 더합니다.
 
@@ -186,10 +182,7 @@ t_{\mathrm{cam}} =
 
 코드: `R_cam_to_base`, `camera_offset`, `transform_to_map()`
 
-</details>
-
-<details>
-<summary><strong>3. 쿼터니언 → 회전행렬 → 지도 좌표</strong></summary>
+### 3. 쿼터니언 → 회전행렬 → 지도 좌표
 
 AMCL에서 받은 로봇 자세 $q=(x,y,z,w)$를 정규화한 뒤 회전행렬로 바꿉니다. 이 변환을 라이브러리 호출 대신 직접 구현했습니다.
 
@@ -211,8 +204,6 @@ P_{\mathrm{map}}=R(q)P_{\mathrm{base}}+t_{\mathrm{robot}}
 코드: `quat_to_rot_matrix()`, `transform_to_map()`
 
 쿼터니언의 크기가 0이면 코드에서는 경고를 출력하고 단위행렬을 사용합니다.
-
-</details>
 
 ## 실험 자료
 
