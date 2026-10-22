@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+<defs>
+<marker id="red" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6" fill="#cf3843"/></marker>
+<marker id="green" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6" fill="#218348"/></marker>
+<marker id="blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6" fill="#226bd2"/></marker>
+<marker id="gray" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6" fill="#68788c"/></marker>
+</defs>
+<rect width="1200" height="820" rx="16" fill="#fff"/>
+<g font-family="Malgun Gothic,Arial,sans-serif" fill="#203246">
+<text x="36" y="48" font-size="28" font-weight="700">같은 위치를 서로 다른 기준으로 표현하기</text>
+<text x="36" y="79" font-size="17" fill="#5e6d7e">카메라가 로봇 전방을 향하고 기울어지지 않은 경우 · 개념도 / 실측값 아님</text>
+<rect x="28" y="104" width="556" height="328" rx="12" fill="#f3f6fb"/>
+<rect x="602" y="104" width="570" height="328" rx="12" fill="#f3f6fb"/>
+<text x="50" y="140" font-size="23" font-weight="700">카메라 광학 좌표계</text>
+<text x="624" y="140" font-size="23" font-weight="700">로봇 좌표계 · base_link</text>
+<circle cx="210" cy="266" r="7" fill="#203246"/>
+<line x1="210" y1="266" x2="374" y2="266" stroke="#cf3843" stroke-width="4" marker-end="url(#red)"/>
+<text x="384" y="272" font-size="20" fill="#cf3843">+X 오른쪽</text>
+<line x1="210" y1="266" x2="210" y2="362" stroke="#218348" stroke-width="4" marker-end="url(#green)"/>
+<text x="232" y="365" font-size="20" fill="#218348">+Y 아래쪽</text>
+<line x1="210" y1="266" x2="302" y2="187" stroke="#226bd2" stroke-width="4" marker-end="url(#blue)"/>
+<text x="319" y="194" font-size="20" fill="#226bd2">+Z 전방</text>
+<text x="50" y="408" font-size="17">원점: 광학 중심 / 오른쪽·아래·전방</text>
+<circle cx="884" cy="285" r="7" fill="#203246"/>
+<line x1="884" y1="285" x2="990" y2="205" stroke="#cf3843" stroke-width="4" marker-end="url(#red)"/>
+<text x="1001" y="208" font-size="20" fill="#cf3843">+X 전방</text>
+<line x1="884" y1="285" x2="721" y2="285" stroke="#218348" stroke-width="4" marker-end="url(#green)"/>
+<text x="656" y="321" font-size="20" fill="#218348">+Y 왼쪽</text>
+<line x1="884" y1="285" x2="884" y2="175" stroke="#226bd2" stroke-width="4" marker-end="url(#blue)"/>
+<text x="766" y="186" font-size="20" fill="#226bd2">+Z 위쪽</text>
+<text x="624" y="408" font-size="17">원점: 로봇 기준점 / 전방·왼쪽·위쪽</text>
+<text x="45" y="470" font-size="22" font-weight="700">축의 대응: X_base = Z_cam,  Y_base = −X_cam,  Z_base = −Y_cam</text>
+<text x="45" y="501" font-size="18" fill="#5e6d7e">위 대응은 회전만 적용한 값입니다. 이후 카메라의 장착 위치를 로봇 좌표로 더합니다.</text>
+<rect x="28" y="529" width="556" height="262" rx="12" fill="#f3f6fb"/>
+<rect x="602" y="529" width="570" height="262" rx="12" fill="#edf4ff"/>
+<text x="50" y="565" font-size="22" font-weight="700">지도는 고정, 로봇의 방향은 변함</text>
+<line x1="92" y1="737" x2="271" y2="737" stroke="#cf3843" stroke-width="3" marker-end="url(#red)"/>
+<line x1="92" y1="737" x2="92" y2="606" stroke="#218348" stroke-width="3" marker-end="url(#green)"/>
+<text x="280" y="744" font-size="17" fill="#cf3843">+X_map</text>
+<text x="106" y="614" font-size="17" fill="#218348">+Y_map</text>
+<circle cx="260" cy="690" r="8" fill="#203246"/>
+<line x1="260" y1="690" x2="260" y2="605" stroke="#cf3843" stroke-width="4" marker-end="url(#red)"/>
+<text x="279" y="633" font-size="18">+X_base (로봇 전방)</text>
+<text x="279" y="663" font-size="18" fill="#5e6d7e">지도 +Y 방향을 바라봄</text>
+<text x="279" y="701" font-size="18">로봇 위치 t_robot</text>
+<text x="50" y="774" font-size="16" fill="#5e6d7e">위에서 본 그림 / +Z는 화면 밖(위쪽)</text>
+<text x="624" y="565" font-size="22" font-weight="700">계산 순서</text>
+<text x="624" y="608" font-size="20">① 축 방향을 맞춘다 (회전 R)</text>
+<text x="624" y="644" font-size="20">② 원점 차이를 더한다 (이동 t)</text>
+<text x="624" y="695" font-size="22" font-weight="700" fill="#226bd2">P_base = R_cam→base P_cam + t_cam</text>
+<text x="624" y="738" font-size="22" font-weight="700" fill="#226bd2">P_map = R(q) P_base + t_robot</text>
+<text x="624" y="773" font-size="16" fill="#5e6d7e">축 규약: ROS REP-103 / 그림: 프로젝트 설명용 직접 제작</text>
+</g></svg>
