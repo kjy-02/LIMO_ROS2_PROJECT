@@ -6,7 +6,6 @@ SLAM과 3차원 좌표 변환을 공부한 뒤 LIMO 로봇에 적용한 프로�
 | :--- | :--- |
 | 목표 | SLAM 적용, YOLO 통합, 3차원 좌표 변환 구현 |
 | 환경 | LIMO / Ubuntu 20.04 / ROS 2 Foxy / RealSense D435i / 2D LiDAR |
-| 팀 구성 | 2인 |
 | 본인 담당 | 객체 검출·좌표 변환·마커 표시 코드 구현 및 통합 주도 |
 | 활용한 구성 | LIMO 드라이버, Cartographer, Nav2·AMCL, RealSense 드라이버, YOLOv3 사전학습 모델 |
 
